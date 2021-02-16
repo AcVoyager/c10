@@ -6,6 +6,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm run deploy`
+
+Deploy the app to Github Page. The deployed files is under `gh-pages` branch. [Demo](https://acvoyager.github.io/c10/) here.
+
+This part is added by Chang. Reach [Deployment](https://create-react-app.dev/docs/deployment/#github-pages) for more info about deploying app to Github pages.
+
 ### `npm start`
 
 Runs the app in the development mode.\
