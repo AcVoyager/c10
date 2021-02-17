@@ -1,0 +1,43 @@
+@font-face {
+    font-family: MyFont;
+    src: url("../assets/fonts/font7.TTF");
+}
+
+.letter {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    min-height: 100vh;
+
+    background-color: #c7b670;
+    background-image: url("../assets/textures/rice-paper-3.png");
+    /* background-repeat: no-repeat; */
+    background-size: auto;
+
+}
+
+.letter-content {
+    width: 80%;
+    font-family: MyFont;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Caveat;
+    src: url("../assets/fonts/Caveat-Regular.ttf");
+}
+.footer-button {
+    background-color: Transparent;
+    border: none;
+    font-size: 2rem;
+    font-family: Caveat;
+}
+
+@media (orientation: portrait) {
+    .letter-content {
+        width: 95%;
+        font-size: 1.5rem;
+    }
+}
