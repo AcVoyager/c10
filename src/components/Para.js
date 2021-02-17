@@ -12,12 +12,14 @@ function Para(props) {
         let word = text.substring(0, end);
         setShownText(word);
         setEnd(end + 1);
+        props.onEnd();
     }
 
     useEffect(() => {
         // If there's still word to show
         if(end <= wordLength) {
-            const itv = end > 1 && symbols.includes(text.charAt(end-2)) ? 600 : 75;
+            let itv = end > 1 && symbols.includes(text.charAt(end-2)) ? 500 : 50;
+            // itv = 10; //debug
             const TimerID = setTimeout(() => typewrite(), itv);
             return () => {
                 clearTimeout(TimerID);
