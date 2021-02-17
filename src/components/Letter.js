@@ -64,8 +64,8 @@ class Letter extends React.Component {
                     <div ref={this.paraEnd}/>
                 </div>
 
-                <footer className="footer mb-2 mt-auto">
-                    <div className="container">
+                <footer className="footer mb-3 mt-auto">
+                    <div className="container-fluid">
                         <button className="footer-button" onClick={() => this.handleClick()}>
                             {this.state.paraCounter >= this.paraLength - 1?
                                 "The End.": "Click here to continue..."
