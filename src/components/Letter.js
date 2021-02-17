@@ -7,23 +7,45 @@ class Letter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            paraCounter: 0,
+            paraCounter: -1,
             shownWords: [],
         };
         this.paraLength = MYWORDS.length;
+        this.paraEnd = React.createRef();
     }
 
+
     handleClick() {
-        let counter = this.state.paraCounter;
+        let counter = this.state.paraCounter + 1;
         if(counter >= this.paraLength)
             return;
         const newShownWords = this.state.shownWords.slice();
-        const newPara = <Para text={MYWORDS[counter]}/>;
+        let newPara;
+        if(counter === 0) {
+            newPara = <Para text={MYWORDS[counter]} style={{"font-size":"3rem"}}/>;
+        }
+        else {
+            newPara = <Para text={MYWORDS[counter]}/>;
+        }
         newShownWords.push(newPara);
         this.setState({
-            paraCounter: counter + 1,
+            paraCounter: counter,
             shownWords: newShownWords,
         });
+    }
+
+    scrollToBottom = () => {
+        if(this.state.paraCounter < 0)
+            return;
+        this.paraEnd.current.scrollIntoView({ behavior: "smooth" });
+    }
+
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+      
+    componentDidUpdate() {
+        this.scrollToBottom();
     }
 
     render() {
@@ -39,12 +61,15 @@ class Letter extends React.Component {
                     </ol> */}
                     {/* <Para text={MYWORDS[0]}/> */}
                     {this.state.shownWords}
+                    <div ref={this.paraEnd}/>
                 </div>
 
                 <footer className="footer mb-2 mt-auto">
                     <div className="container">
                         <button className="footer-button" onClick={() => this.handleClick()}>
-                            Click here to continue...
+                            {this.state.paraCounter >= this.paraLength - 1?
+                                "The End.": "Click here to continue..."
+                            }
                         </button>
                     </div>
                 </footer>
