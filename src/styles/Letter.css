@@ -33,6 +33,11 @@
     border: none;
     font-size: 2.5rem;
     font-family: Caveat;
+    transition: 0.5s;
+}
+
+.footer-button:hover {
+    color:lavender;
 }
 
 @media (orientation: portrait) {
